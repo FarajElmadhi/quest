@@ -69,3 +69,30 @@ with font-awesome or any other icon font library -->
   </ul>
 </li>
 @endif
+<!--categories_start_route-->
+@if(admin()->user()->role("categories_show"))
+<li class="nav-item {{active_link('categories','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('categories','active')}}">
+    <i class="nav-icon fa fa-icons"></i>
+    <p>
+      {{trans('admin.categories')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('categories')}}" class="nav-link  {{active_link('categories','active')}}">
+        <i class="fa fa-icons nav-icon"></i>
+        <p>{{trans('admin.categories')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('categories/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--categories_end_route-->

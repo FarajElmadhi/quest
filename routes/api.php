@@ -32,7 +32,9 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 		Route::post('me', 'Auth\AuthAndLogin@me')->name('api.me');
 		Route::post('change/password', 'Auth\AuthAndLogin@change_password')->name('api.change_password');
 		//Auth-Api-Start//
-		//Auth-Api-End//
+		Route::apiResource("categories","CategoriesApi", ["as" => "api.categories"]); 
+			Route::post("categories/multi_delete","CategoriesApi@multi_delete"); 
+			//Auth-Api-End//
 	});
 	// Insert your Api Here End //
 });

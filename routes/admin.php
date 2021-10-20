@@ -37,6 +37,8 @@ Route::group(['prefix' => app('admin'), 'middleware' => 'Lang'], function () {
 		Route::post('admingroups/multi_delete', 'Admin\AdminGroups@multi_delete');
 		Route::resource('admins', 'Admin\Admins');
 		Route::post('admins/multi_delete', 'Admin\Admins@multi_delete');
+		Route::resource('categories','Admin\Categories'); 
+		Route::post('categories/multi_delete','Admin\Categories@multi_delete'); 
 		////////AdminRoutes/*End*///////////////
 	});
 
