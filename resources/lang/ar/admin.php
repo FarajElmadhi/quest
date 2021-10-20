@@ -1,5 +1,7 @@
 <?php
 		return [
+		"truefalse"	=>		"truefalse",
+		"choose"	=>		"choose",
 		"show"	=>		"show",
 		"hide"	=>		"hide",
 		"file_too_big"	=>		"حجم الملف كبير جدا يجب ان لا يتعدي :size م.ج",
@@ -30,7 +32,6 @@
 		"group_name"	=>		"اسم المجموعة",
 		"admingroups"	=>		"صلاحيات المشرفين",
 		"record_id"	=>		"رقم",
-		"choose"	=>		"..... اختر .....",
 		"undefinedRecord"	=>		"هذا السجل غير موجود او قد تم حذفه مسبقا",
 		"icon"	=>		"رمز",
 		"photo_profile"	=>		"الصورة الشخصية",
@@ -133,5 +134,17 @@
 		"status"	=>		"Status",
 		"category_name"	=>		"Category Name",
 		"categories"	=>		"Categories",
+		"wrong4"	=>		"wrong4",
+		"multi"	=>		"multi",
+		"false"	=>		"false",
+		"true"	=>		"true",
+		"question_type"	=>		"Questions Type",
+		"wrong3"	=>		"wrong3",
+		"wrong2"	=>		"wrong2",
+		"wrong1"	=>		"wrong1",
+		"correct"	=>		"correct",
+		"category_id"	=>		"Category",
+		"question"	=>		"Questions",
+		"questions"	=>		"Questions",
 
 ];

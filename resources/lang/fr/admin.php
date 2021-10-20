@@ -1,5 +1,7 @@
 <?php
 		return [
+		"truefalse"	=>		"truefalse",
+		"choose"	=>		"choose",
 		"show"	=>		"show",
 		"hide"	=>		"hide",
 		"file_too_big"	=>		"La taille du fichier est très grande, elle ne doit pas dépasser :size MB",
@@ -28,7 +30,6 @@
 		"group_name"	=>		"Group Name",
 		"admingroups"	=>		"Admin Permissions",
 		"record_id"	=>		"Record ID",
-		"choose"	=>		"..... Choisir .....",
 		"undefinedRecord"	=>		"Cet enregistrement n'existe pas ou a déjà été supprimé",
 		"icon"	=>		"Icône de site Web Favicon",
 		"photo_profile"	=>		"Image de profil",
@@ -125,5 +126,17 @@
 		"status"	=>		"Status",
 		"category_name"	=>		"Category Name",
 		"categories"	=>		"Categories",
+		"wrong4"	=>		"wrong4",
+		"multi"	=>		"multi",
+		"false"	=>		"false",
+		"true"	=>		"true",
+		"question_type"	=>		"Questions Type",
+		"wrong3"	=>		"wrong3",
+		"wrong2"	=>		"wrong2",
+		"wrong1"	=>		"wrong1",
+		"correct"	=>		"correct",
+		"category_id"	=>		"Category",
+		"question"	=>		"Questions",
+		"questions"	=>		"Questions",
 
 ];
