@@ -27,13 +27,12 @@ $(document).ready(function(){
     $('.{{ $outputClass }}').html('<select class="form-control" id="{{ $outputClass }}"></select>');
     $('#{{ $outputClass }}').select2();
 
-    @if(old($outputClass))
-    var selectIDValue = $('#'+selectID+' option:selected').val();
+    @if(old($outputClass) || old($selectID))
     $.ajax({
        url:'{{ $url }}',
        dataType:'html',
        type:'post',
-       data:{_token:'{{ csrf_token() }}','{{ $selectID }}':selectIDValue,select:'{{ old($outputClass) }}'},
+       data:{_token:'{{ csrf_token() }}','{{ $selectID }}':'{{ old($selectID) }}',select:'{{ old($outputClass) }}'},
        beforeSend: function(){
         $('.{{ $outputClass }}').html('<center><i class="fa fa-spinner fa-spin"></i></center>');
        },success: function(data){
@@ -70,7 +69,7 @@ $(document).ready(function(){
 
 
     @if($selectedvalue > 0)
-    var selectIDValue = $('#'+selectID+' option:selected').val();
+    var selectIDValue = {{ $parentValue }};
     $.ajax({
        url:'{{ $url }}',
        dataType:'html',

@@ -1,6 +1,9 @@
 *{
     direction: rtl !important;
 }
+
+
+
 .layout-fixed .main-sidebar {
     right: 0;
 }
@@ -108,7 +111,6 @@
 .hidden{
     display: none;
 }
-
 .preview img{
     cursor: pointer;
 }
