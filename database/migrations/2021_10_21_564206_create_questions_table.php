@@ -17,14 +17,17 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('question');
-            $table->foreignId("category_id")->constrained("categories")->references("id")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("category_id")->unsigned()->nullable();
+				$table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+
             $table->string('correct')->nullable();
             $table->string('wrong1')->nullable();
             $table->string('wrong2')->nullable();
             $table->string('wrong3')->nullable();
             $table->enum('question_type',['true','false','multi']);
 			$table->softDeletes();
-			$table->timestamps();
+
+			$table->timestamps();
         });
     }
 
