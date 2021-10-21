@@ -34,9 +34,10 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 		//Auth-Api-Start//
 		Route::apiResource("categories","CategoriesApi", ["as" => "api.categories"]); 
 			Route::post("categories/multi_delete","CategoriesApi@multi_delete"); 
-			Route::apiResource("questions","QuestionsApi", ["as" => "api.questions"]); 
 			Route::post("questions/multi_delete","QuestionsApi@multi_delete"); 
 			//Auth-Api-End//
 	});
+	Route::apiResource("questions","QuestionsApi", ["as" => "api.questions"]); 
+
 	// Insert your Api Here End //
 });
