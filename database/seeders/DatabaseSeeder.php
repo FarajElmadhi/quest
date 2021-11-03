@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder {
 
 		\App\Models\Admin::create([
 			'name' => 'admin',
-			'email' => 'test@test.com',
+			'email' => 'admin@admin.com',
 			'group_id' => 1,
-			'password' => bcrypt(123456),
+			'password' => bcrypt(87654321),
 		]);
 
 		if (class_exists(\App\Models\AdminGroupRole::class)) {
