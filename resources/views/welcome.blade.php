@@ -18,26 +18,6 @@
     </head>
     <body class="antialiased">
        
-                    <div class="ml-12">
-                        <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                            <a href="{{ aurl('') }}" class="underline text-gray-900 dark:text-white" >Go To Admin Panel</a>
-                            <p>run command : php artisan db:seed then (login by default account ) email: test@test.com / password: 123456</p>
-                            <b>Choose From List:- </b>
-                            <ul>
-                                <li><a href="{{url('it/baboon-sd')}}"  target="_blank" class="underline text-gray-900 dark:text-white">🙈 Baboon Maker</a></li>
-                                <li><a href="{{url('it/routelist')}}" target="_blank" class="underline text-gray-900 dark:text-white"> Route List</a></li>
-                                <li><a href="{{url('it/workflow')}}" target="_blank" class="underline text-gray-900 dark:text-white"> workflow</a></li>
-                                <li><a href="#" target="_blank" class="underline text-gray-900 dark:text-white"> Request Tracking (Coming Soon)</a></li>
-                                <li><a href="#" target="_blank" class="underline text-gray-900 dark:text-white"> Unit test Automation (Coming Soon)</a></li>
-                                <li>
-                                    <a href="https://it.phpanonymous.com/docs" class="underline text-gray-900 dark:text-white" target="_blank">It Documentation</a>
-                                </li>
-                            </ul>
-                            you want ask me something ? <a href="mailto:php.anonymous1@gmail.com" class="underline text-gray-900 dark:text-white">
-                            Ok Text me </a>
-                            <p></p>
-                            <a href="https://youtube.com/c/phpanonymous" target="_blank" title="Youtube Channel" class="underline text-gray-900 dark:text-white">Visit My Youtube Channel to know how it work</a>
-                        </div>
-                    
+               
 </body>
 </html>
