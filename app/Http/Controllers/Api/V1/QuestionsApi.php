@@ -39,8 +39,20 @@ class QuestionsApi extends Controller{
              */
             public function index()
             {
-            	$Question = Question::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->get();
+            	$Question = Question::select($this->selectColumns)->get();
+                // $arr = array();
+                // foreach($Question as $k => $v){
+                //     array_push($arr,[
+                //             'one'=> $k,
+                //             'two' => $v->question
+                //             'three' => 
+                //     ]);
+                // }
+                // array_rand($arr, 2);
+
                return successResponseJson(["data"=>$Question]);
+
+            // print_r(shuffle($Question));
             }
 
 

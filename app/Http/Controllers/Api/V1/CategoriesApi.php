@@ -33,7 +33,7 @@ class CategoriesApi extends Controller{
              */
             public function index()
             {
-            	$Category = Category::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+            	$Category = Category::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->get();
                return successResponseJson(["data"=>$Category]);
             }
 
