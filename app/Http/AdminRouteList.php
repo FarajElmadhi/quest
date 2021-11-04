@@ -6,6 +6,7 @@
 * [it v 1.6.32]
 */
 return [
+	"player"=>["create","read","update","delete"],
 	"questions"=>["create","read","update","delete"],
 	"categories"=>["create","read","update","delete"],
 	"admins"=>["create","read","update","delete"],

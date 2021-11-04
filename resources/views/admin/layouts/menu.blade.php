@@ -124,3 +124,31 @@ with font-awesome or any other icon font library -->
 </li>
 @endif
 <!--questions_end_route-->
+
+<!--player_start_route-->
+@if(admin()->user()->role("player_show"))
+<li class="nav-item {{active_link('player','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('player','active')}}">
+    <i class="nav-icon fa fa-icons"></i>
+    <p>
+      {{trans('admin.player')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('player')}}" class="nav-link  {{active_link('player','active')}}">
+        <i class="fa fa-icons nav-icon"></i>
+        <p>{{trans('admin.player')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('player/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--player_end_route-->

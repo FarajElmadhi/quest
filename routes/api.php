@@ -33,11 +33,14 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 		Route::post('change/password', 'Auth\AuthAndLogin@change_password')->name('api.change_password');
 		//Auth-Api-Start//
 	
+		
 			//Auth-Api-End//
 	});
 	Route::apiResource("questions","QuestionsApi", ["as" => "api.questions"]); 
 	Route::apiResource("categories","CategoriesApi", ["as" => "api.categories"]); 
 			Route::post("categories/multi_delete","CategoriesApi@multi_delete"); 
 			Route::post("questions/multi_delete","QuestionsApi@multi_delete"); 
+			Route::apiResource("player","PlayerApi", ["as" => "api.player"]); 
+			Route::post("player/multi_delete","PlayerApi@multi_delete"); 
 	// Insert your Api Here End //
 });
