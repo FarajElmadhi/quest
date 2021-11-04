@@ -39,7 +39,7 @@ class QuestionsApi extends Controller{
              */
             public function index()
             {
-            	$Question = Question::select($this->selectColumns)->get();
+            	$Question = Question::select($this->selectColumns)->inRandomOrder()->get();
                 // $arr = array();
                 // foreach($Question as $k => $v){
                 //     array_push($arr,[
