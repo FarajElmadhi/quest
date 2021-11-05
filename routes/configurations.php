@@ -213,10 +213,10 @@ if (!function_exists('errorResponse')) {
 		$data['status'] = false;
 		$data['StatusCode'] = $status;
 		$data['StatusType'] = 'Unprocessable Entity';
-		$data['explainError'] = 'The request was well-formed but was unable to be followed due to semantic errors.';
-		if (!isset($data['message'])) {
-			$data['message'] = trans("admin.undefinedRecord");
-		}
+		// $data['explainError'] = 'The request was well-formed but was unable to be followed due to semantic errors.';
+		// if (!isset($data['message'])) {
+		// 	// $data['message'] = trans("admin.undefinedRecord");
+		// }
 		return response()->json($data, $status);
 
 	}

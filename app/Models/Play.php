@@ -17,6 +17,7 @@ protected $fillable = [
         'level',
         'coins',
         'time',
+        'is_now',
 		'created_at',
 		'updated_at',
 	];

@@ -86,6 +86,10 @@
 				<b>{{trans('admin.time')}} :</b>
 				{!! $player->time !!}
 			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<b>{{trans('admin.is_now')}} :</b>
+				{!! $player->is_now !!}
+			</div>
 			<!-- /.row -->
 		</div>
 	</div>

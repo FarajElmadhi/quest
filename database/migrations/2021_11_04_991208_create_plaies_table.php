@@ -22,6 +22,7 @@ class CreatePlaiesTable extends Migration
             $table->string('level')->default(1);
             $table->string('coins')->default(100);
             $table->string('time')->default(0);
+            $table->string('is_now')->default(0);
 			$table->timestamps();
         });
     }

@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Play;
 use Validator;
-use Illuminate\Support\Str;
-
 use App\Http\Controllers\ValidationsApi\V1\PlayerRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.32]
@@ -40,7 +38,7 @@ class PlayerApi extends Controller{
              */
             public function index()
             {
-            	$Play = Play::select($this->selectColumns)->get();
+            	$Play = Play::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
                return successResponseJson(["data"=>$Play]);
             }
 
@@ -52,19 +50,8 @@ class PlayerApi extends Controller{
              */
     public function store(PlayerRequest $request)
     {
-
     	$data = $request->except("_token");
-    	if($data['type'] == 'new'){
-$token = Str::random(40);
-$data['token'] = $token;
-$Play = Play::create($data); 
-$Play = Play::with($this->arrWith())->find($Play->id,$this->selectColumns);
-return successResponseJson([
-    "message"=>trans("admin.added"),
-    "data"=>$Play]);
-        }else{
-
-        
+    	
         $Play = Play::create($data); 
 
 		  $Play = Play::with($this->arrWith())->find($Play->id,$this->selectColumns);
@@ -72,7 +59,6 @@ return successResponseJson([
             "message"=>trans("admin.added"),
             "data"=>$Play
         ]);
-    }
     }
 
 

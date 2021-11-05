@@ -79,6 +79,12 @@
         {!! Form::text('time', $player->time ,['class'=>'form-control','placeholder'=>trans('admin.time')]) !!}
     </div>
 </div>
+<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+    <div class="form-group">
+        {!! Form::label('is_now',trans('admin.is_now'),['class'=>'control-label']) !!}
+        {!! Form::text('is_now', $player->is_now ,['class'=>'form-control','placeholder'=>trans('admin.is_now')]) !!}
+    </div>
+</div>
 
 </div>
 		<!-- /.row -->

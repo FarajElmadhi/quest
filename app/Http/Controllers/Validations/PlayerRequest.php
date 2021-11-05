@@ -31,6 +31,7 @@ class PlayerRequest extends FormRequest {
              'level'=>'',
              'coins'=>'',
              'time'=>'',
+             'is_now'=>'',
 		];
 	}
 
@@ -42,6 +43,7 @@ class PlayerRequest extends FormRequest {
              'level'=>'',
              'coins'=>'',
              'time'=>'',
+             'is_now'=>'',
 		];
 	}
 
@@ -65,6 +67,7 @@ class PlayerRequest extends FormRequest {
              'level'=>trans('admin.level'),
              'coins'=>trans('admin.coins'),
              'time'=>trans('admin.time'),
+             'is_now'=>trans('admin.is_now'),
 		];
 	}
 
