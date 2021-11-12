@@ -74,3 +74,33 @@
     </div>
 </div>
 <!--player_end-->
+<!--online_start-->
+<div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h3>{{ mK(App\Models\Online::count()) }}</h3>
+        <p>{{ trans("admin.online") }}</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-icons"></i>
+      </div>
+      <a href="{{ aurl("online") }}" class="small-box-footer">{{ trans("admin.online") }} <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+<!--online_end-->
+<!--games_start-->
+<div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
+      <div class="inner">
+        <h3>{{ mK(App\Models\Game::count()) }}</h3>
+        <p>{{ trans("admin.games") }}</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-icons"></i>
+      </div>
+      <a href="{{ aurl("games") }}" class="small-box-footer">{{ trans("admin.games") }} <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+<!--games_end-->

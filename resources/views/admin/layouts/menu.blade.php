@@ -152,3 +152,59 @@ with font-awesome or any other icon font library -->
 </li>
 @endif
 <!--player_end_route-->
+
+<!--online_start_route-->
+@if(admin()->user()->role("online_show"))
+<li class="nav-item {{active_link('online','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('online','active')}}">
+    <i class="nav-icon fa fa-icons"></i>
+    <p>
+      {{trans('admin.online')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('online')}}" class="nav-link  {{active_link('online','active')}}">
+        <i class="fa fa-icons nav-icon"></i>
+        <p>{{trans('admin.online')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('online/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--online_end_route-->
+
+<!--games_start_route-->
+@if(admin()->user()->role("games_show"))
+<li class="nav-item {{active_link('games','menu-open')}} ">
+  <a href="#" class="nav-link {{active_link('games','active')}}">
+    <i class="nav-icon fa fa-icons"></i>
+    <p>
+      {{trans('admin.games')}} 
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <li class="nav-item">
+      <a href="{{aurl('games')}}" class="nav-link  {{active_link('games','active')}}">
+        <i class="fa fa-icons nav-icon"></i>
+        <p>{{trans('admin.games')}} </p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{{ aurl('games/create') }}" class="nav-link">
+        <i class="fas fa-plus nav-icon"></i>
+        <p>{{trans('admin.create')}} </p>
+      </a>
+    </li>
+  </ul>
+</li>
+@endif
+<!--games_end_route-->

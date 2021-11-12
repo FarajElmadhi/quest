@@ -4,22 +4,19 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use App\Models\Question;
+use App\Models\Game;
 use Validator;
-use App\Http\Controllers\ValidationsApi\V1\QuestionsRequest;
+use App\Http\Controllers\ValidationsApi\V1\GamesRequest;
 // Auto Controller Maker By Baboon Script
 // Baboon Maker has been Created And Developed By  [it v 1.6.32]
 // Copyright Reserved  [it v 1.6.32]
-class QuestionsApi extends Controller{
+class GamesApi extends Controller{
 	protected $selectColumns = [
 		"id",
-		"question",
-		"category_id",
-		"correct",
-		"wrong1",
-		"wrong2",
-		"wrong3",
-		"question_type",
+		"steps",
+		"steps_all",
+		"time",
+		"status",
 	];
 
             /**
@@ -28,7 +25,7 @@ class QuestionsApi extends Controller{
              * @return array to assign with index & show methods
              */
             public function arrWith(){
-               return ['category_id',];
+               return [];
             }
 
 
@@ -39,41 +36,26 @@ class QuestionsApi extends Controller{
              */
             public function index()
             {
-
-                
-            	$Question = Question::select($this->selectColumns)->inRandomOrder()->get();
-                // $arr = array();
-                // foreach($Question as $k => $v){
-                //     array_push($arr,[
-                //             'one'=> $k,
-                //             'two' => $v->question
-                //             'three' => 
-                //     ]);
-                // }
-                // array_rand($arr, 2);
-
-               return successResponseJson(["data"=>$Question]);
-
-            // print_r(shuffle($Question));
+            	$Game = Game::select($this->selectColumns)->with($this->arrWith())->orderBy("id","desc")->paginate(15);
+               return successResponseJson(["data"=>$Game]);
             }
 
 
-            
             /**
              * Baboon Api Script By [it v 1.6.32]
              * Store a newly created resource in storage. Api
              * @return \Illuminate\Http\Response
              */
-    public function store(QuestionsRequest $request)
+    public function store(GamesRequest $request)
     {
     	$data = $request->except("_token");
     	
-        $Question = Question::create($data); 
+        $Game = Game::create($data); 
 
-		  $Question = Question::with($this->arrWith())->find($Question->id,$this->selectColumns);
+		  $Game = Game::with($this->arrWith())->find($Game->id,$this->selectColumns);
         return successResponseJson([
             "message"=>trans("admin.added"),
-            "data"=>$Question
+            "data"=>$Game
         ]);
     }
 
@@ -86,15 +68,15 @@ class QuestionsApi extends Controller{
              */
             public function show($id)
             {
-                $Question = Question::with($this->arrWith())->find($id,$this->selectColumns);
-            	if(is_null($Question) || empty($Question)){
+                $Game = Game::with($this->arrWith())->find($id,$this->selectColumns);
+            	if(is_null($Game) || empty($Game)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
                  return successResponseJson([
-              "data"=> $Question
+              "data"=> $Game
               ]);  ;
             }
 
@@ -106,7 +88,7 @@ class QuestionsApi extends Controller{
              */
             public function updateFillableColumns() {
 				       $fillableCols = [];
-				       foreach (array_keys((new QuestionsRequest)->attributes()) as $fillableUpdate) {
+				       foreach (array_keys((new GamesRequest)->attributes()) as $fillableUpdate) {
   				        if (!is_null(request($fillableUpdate))) {
 						  $fillableCols[$fillableUpdate] = request($fillableUpdate);
 						}
@@ -114,10 +96,10 @@ class QuestionsApi extends Controller{
   				     return $fillableCols;
   	     		}
 
-            public function update(QuestionsRequest $request,$id)
+            public function update(GamesRequest $request,$id)
             {
-            	$Question = Question::find($id);
-            	if(is_null($Question) || empty($Question)){
+            	$Game = Game::find($id);
+            	if(is_null($Game) || empty($Game)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
@@ -125,12 +107,12 @@ class QuestionsApi extends Controller{
 
             	$data = $this->updateFillableColumns();
                  
-              Question::where("id",$id)->update($data);
+              Game::where("id",$id)->update($data);
 
-              $Question = Question::with($this->arrWith())->find($id,$this->selectColumns);
+              $Game = Game::with($this->arrWith())->find($id,$this->selectColumns);
               return successResponseJson([
                "message"=>trans("admin.updated"),
-               "data"=> $Question
+               "data"=> $Game
                ]);
             }
 
@@ -141,17 +123,17 @@ class QuestionsApi extends Controller{
              */
             public function destroy($id)
             {
-               $questions = Question::find($id);
-            	if(is_null($questions) || empty($questions)){
+               $games = Game::find($id);
+            	if(is_null($games) || empty($games)){
             	 return errorResponseJson([
             	  "message"=>trans("admin.undefinedRecord")
             	 ]);
             	}
 
 
-               it()->delete("question",$id);
+               it()->delete("game",$id);
 
-               $questions->delete();
+               $games->delete();
                return successResponseJson([
                 "message"=>trans("admin.deleted")
                ]);
@@ -164,30 +146,30 @@ class QuestionsApi extends Controller{
                 $data = request("selected_data");
                 if(is_array($data)){
                     foreach($data as $id){
-                    $questions = Question::find($id);
-	            	if(is_null($questions) || empty($questions)){
+                    $games = Game::find($id);
+	            	if(is_null($games) || empty($games)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
 
-                    	it()->delete("question",$id);
-                    	$questions->delete();
+                    	it()->delete("game",$id);
+                    	$games->delete();
                     }
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);
                 }else {
-                    $questions = Question::find($data);
-	            	if(is_null($questions) || empty($questions)){
+                    $games = Game::find($data);
+	            	if(is_null($games) || empty($games)){
 	            	 return errorResponseJson([
 	            	  "message"=>trans("admin.undefinedRecord")
 	            	 ]);
 	            	}
  
-                    	it()->delete("question",$data);
+                    	it()->delete("game",$data);
 
-                    $questions->delete();
+                    $games->delete();
                     return successResponseJson([
                      "message"=>trans("admin.deleted")
                     ]);

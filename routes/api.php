@@ -34,7 +34,9 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 		//Auth-Api-Start//
 
 
-		//Auth-Api-End//
+		Route::apiResource("games","GamesApi", ["as" => "api.games"]); 
+			Route::post("games/multi_delete","GamesApi@multi_delete"); 
+			//Auth-Api-End//
 	});
 	Route::apiResource("questions", "QuestionsApi", ["as" => "api.questions"]);
 	Route::apiResource("categories", "CategoriesApi", ["as" => "api.categories"]);
@@ -44,6 +46,9 @@ Route::group(['middleware' => ['ApiLang', 'cors'], 'prefix' => 'v1', 'namespace'
 	Route::post("player/multi_delete", "PlayerApi@multi_delete");
 	Route::post("player/check_user_online", "PlayerOnlineApi@checkUserOnline");
 	Route::post("player/get_user", "PlayerOnlineApi@getUserAndToken");
+	Route::post("player/check_answare", "OnlineNowApi@checkAnsware");
+	Route::post("player/get_question_by_game_id", "OnlineNowApi@getQuestionByGameId");
+	Route::post("player/reset_game_api", "OnlineNowApi@resetGameApi");
 
 	// Insert your Api Here End //
 });

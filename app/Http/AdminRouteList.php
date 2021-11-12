@@ -6,6 +6,8 @@
 * [it v 1.6.32]
 */
 return [
+	"games"=>["create","read","update","delete"],
+	"online"=>["create","read","update","delete"],
 	"player"=>["create","read","update","delete"],
 	"questions"=>["create","read","update","delete"],
 	"categories"=>["create","read","update","delete"],
